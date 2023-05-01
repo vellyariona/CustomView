@@ -52,9 +52,21 @@ public class EditTextWithClear extends AppCompatEditText {
                 float clearButtonStart = (getWidth()-getPaddingEnd()-mClearButtonImage.getIntrinsicWidth());
                 boolean isClearButtonClicked = false;
 //                untuk mendeteksi touch
-                if (motionEvent.getX() > clearButtonStart){
-                    isClearButtonClicked = true;
+//                if (motionEvent.getX() > clearButtonStart){
+//                    isClearButtonClicked = true;
+//                }
+
+//                TUGAS RTL
+                if (getLayoutDirection() != LAYOUT_DIRECTION_RTL) {
+                    if (motionEvent.getX() > clearButtonStart) {
+                        isClearButtonClicked = true;
+                    }
+                } else {
+                    if (motionEvent.getX() < clearButtonStart) {
+                        isClearButtonClicked = true;
+                    }
                 }
+
 
                 if (isClearButtonClicked){
 
